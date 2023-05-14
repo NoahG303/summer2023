@@ -1,19 +1,6 @@
 import random
-ONES = 1
-TWOS = 2
-THREES = 3
-FOURS = 4
-FIVES = 5
-SIXES = 6
-THREE_OF_A_KIND = 7
-FOUR_OF_A_KIND = 8
-FULL_HOUSE = 9
-SMALL_STRAIGHT = 10
-LARGE_STRAIGHT = 11
-YAHTZEE = 12
-CHANCE = 13
 
-num_to_str = {
+translations = {
     1: "ONES",
     2: "TWOS",
     3: "THREES",
@@ -27,9 +14,6 @@ num_to_str = {
     11: "LARGE_STRAIGHT",
     12: "YAHTZEE",
     13: "CHANCE",
-}
-
-str_to_num = {
     "ONES": 1,
     "TWOS": 2,
     "THREES": 3,
@@ -42,7 +26,7 @@ str_to_num = {
     "SMALL_STRAIGHT": 10,
     "LARGE_STRAIGHT": 11,
     "YAHTZEE": 12,
-    "CHANCE": 13,
+    "CHANCE": 13
 }
 
 def roll_dice(keeps, dice):
@@ -87,47 +71,47 @@ def calculate_score(type, dice):
     occurrences = [val for val in dice_vals.values()]
     if type >= 1 and type <= 6:
         return dice.count(type)*type
-    elif type == THREE_OF_A_KIND:
+    elif type == translations["THREE_OF_A_KIND"]:
         if 3 in occurrences or 4 in occurrences or 5 in occurrences:
             return sum(dice)
         else:
             return 0
-    elif type == FOUR_OF_A_KIND:
+    elif type == translations["FOUR_OF_A_KIND"]:
         if 4 in occurrences or 5 in occurrences:
             return sum(dice)
         else:
             return 0
-    elif type == FULL_HOUSE:
+    elif type == translations["FULL_HOUSE"]:
         if 3 in occurrences and 2 in occurrences:
             return 25
         else:
             return 0
-    elif type == SMALL_STRAIGHT:
+    elif type == translations["SMALL_STRAIGHT"]:
         if 3 in dice and 4 in dice and ((1 in dice and 2 in dice) or (2 in dice and 5 in dice) or (5 in dice and 6 in dice)):
             return 30
         else:
             return 0
-    elif type == LARGE_STRAIGHT:
+    elif type == translations["LARGE_STRAIGHT"]:
         if 2 in dice and 3 in dice and 4 in dice and 5 in dice and (1 in dice or 6 in dice):
             return 40
         else:
             return 0
-    elif type == YAHTZEE:
+    elif type == translations["YAHTZEE"]:
         if dice[0] == dice[1] and dice[0] == dice[2] and dice[0] == dice[3] and dice[0] == dice[4]:
             return 50
         else:
             return 0
-    elif type == CHANCE:
+    elif type == translations["CHANCE"]:
         return sum(dice)
 
 def play_turn(scores, dice):
     options = {}
     for index, score in enumerate(scores):
         if score == None:
-            options[num_to_str[index+1]] = calculate_score(index+1, dice)
+            options[translations[index+1]] = calculate_score(index+1, dice)
     print("Scoring options left: " + str(options))
     selection = input("Select an option to score: ")
-    scores[str_to_num[selection]-1] = options[selection]
+    scores[translations[selection]-1] = options[selection]
 
 def game():
     scores = [None] * 13
