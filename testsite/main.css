@@ -3,28 +3,28 @@
 }
 
 body {
-  background: #051907;
+  background: black;
 }
 
 h1 {
   text-align: center;
-  color: #c4c4c4;
+  color: white;
 }
 
 p {
-  color: #c4c4c4;
+  color: #3498db;
 }
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #107513;
+  background-color: #0a7a4c;
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -33,12 +33,12 @@ p {
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: white;
   color: black;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: #07482d;
   color: white;
 }

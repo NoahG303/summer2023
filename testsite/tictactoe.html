@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="./main.css" type="text/css" rel="stylesheet">
-    <!-- <script src="tictactoe.js"></script> -->
+    <link rel="stylesheet" href="./tictactoe.css"> <!-- add main -->
+    <script src="tictactoe.js" defer></script>
     <title>TicTacToe</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <a href="./blackjack.html">Blackjack</a>
     </div>
     <div>
-        <h1>Welcome to My Website TicTacToe Page</h1>
+        <h1 style="color:black;">Welcome to My Website TicTacToe Page</h1>
     </div>
     <div class="board" id="board">
         <div class="cell" data-cell></div>
@@ -29,7 +29,7 @@
         <div class="cell" data-cell></div>
     </div>
     <div class="winning-message" id="winningMessage">
-        <div id="winningMessageText"></div>
+        <div data-winning-message-text></div>
         <button id="restartButton">Restart</button>
     </div>
 </body>
